@@ -17,7 +17,17 @@ public class Card {
 	}
 	
 	public String toString() {
-		return value + " of " + suit;
+		if (value == 1) {
+			return "Ace of " + suit;
+		} else if (value == 11) {
+			return "Jack of " + suit;
+		} else if (value == 12) {
+			return "Queen of " + suit;
+		} else if (value == 13) {
+			return "King of " + suit;
+		} else {
+			return value + " of " + suit;
+		}
 	}
 	
 }

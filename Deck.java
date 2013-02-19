@@ -1,9 +1,11 @@
+import java.util.*;
+
 public class Deck {
 	
-	private Card[] cards;
+	private ArrayList<Card> cards;
 	
 	public Deck() {
-		cards = new Card[52];
+		cards = new ArrayList<Card>(52);
 		
 		String[] suits = new String[4];
 		suits[0] = "Spades";
@@ -15,12 +17,24 @@ public class Deck {
 		
 		for (String s : suits) {
 			for(int i=1; i<=13; i++) {
-				cards[counter] = new Card(s, i);
-				counter++;
+				cards.add(new Card(s, i));
 			}
 		}
+	}
+	
+	public ArrayList<Card> topFive() {
+		ArrayList<Card> temp = new ArrayList<Card>(5);
 		
-		System.out.println(cards);
+		for (int i=0; i<5; i++) {
+			temp.add(cards.get(0));
+			cards.remove(0);
+		}
+		
+		return temp;
+	}
+	
+	public void shuffle() {
+		Collections.shuffle(cards);
 	}
 	
 }

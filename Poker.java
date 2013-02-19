@@ -8,6 +8,8 @@ public class Poker {
 	
 	public Poker() {
 		deck = new Deck();
+		
+		deck.shuffle();
 	}
 	
 }
